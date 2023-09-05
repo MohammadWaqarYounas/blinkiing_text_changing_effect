@@ -32,36 +32,27 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        val label="Lava G kia killa thukao gy kia!"
-        val textView = findViewById<TextView>(R.id.quote)
+        val label="Type writer text effect started..."
         val mainHandler = Handler(Looper.getMainLooper())
 
 
-//        for (iteration in 0 until 5) {
-//
-//            Thread {
-//                val stringBuilder = StringBuilder()
-//
-//                for (letter in label) {
-//                    stringBuilder.append(letter)
-//                    Thread.sleep(100)
-//
-//                    mainHandler.post {
-//                        textView.text = stringBuilder.toString()
-//                    }
-//                }
-//
-//                // Clear the textView after completing the sentence
-//                mainHandler.post {
-//                    textView.text = ""
-//                }
-//
-//                // Sleep for a while before starting to write the next sentence
-//                Thread.sleep(100) // Adjust the duration as needed
-//            }.start()
-//        }
+        for (iteration in 0 until 5) {
+
+            Thread {
+                val stringBuilder = StringBuilder()
+
+                for (letter in label) {
+                    stringBuilder.append(letter)
+                    Thread.sleep(200)
+
+                    mainHandler.post {
+                        binding.typewriter.text = stringBuilder.toString()
+                    }
+                }
+            }.start()
+        }
+
         startTextAnimation()
-//
 
     }
 
